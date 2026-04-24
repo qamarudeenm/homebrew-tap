@@ -10,7 +10,7 @@ class Minisky < Formula
 
   if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
     url "https://github.com/qamarudeenm/minisky/releases/download/v1.0.0/minisky_linux_amd64.tar.gz"
-    sha256 "7274de325e45acc6279a68dad7228d8dfa6c8c27edad900187a3b10fd549ef05"
+    sha256 "a0b50ce5b0572264f05f570ce62df489ee6bff54fab218e16e05947974d04f81"
     define_method(:install) do
       bin.install "minisky"
     end
