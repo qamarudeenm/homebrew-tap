@@ -5,14 +5,26 @@
 class Minisky < Formula
   desc "High-fidelity local GCP emulator."
   homepage "https://github.com/qamarudeenm/minisky"
-  version "1.2.1"
-  depends_on :linux
+  version "1.2.2"
 
-  if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-    url "https://github.com/qamarudeenm/minisky/releases/download/v1.2.1/minisky_linux_amd64.tar.gz"
-    sha256 "e129d63959aea38f6c8be3b1482b08e2369b26c0eb100444ef698e8d00b28437"
-    define_method(:install) do
-      bin.install "minisky"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/qamarudeenm/minisky/releases/download/v1.2.2/minisky_darwin_arm64.tar.gz"
+      sha256 "12cfeb6854481f40bdca2004884a9052b496ce6c18d2d5f9f33df89f4832aa10"
+
+      define_method(:install) do
+        bin.install "minisky"
+      end
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/qamarudeenm/minisky/releases/download/v1.2.2/minisky_linux_amd64.tar.gz"
+      sha256 "fbe006e7b258ec9262aa2b72b8cdb914f05704659cac61838aba7d0a85b190ca"
+      define_method(:install) do
+        bin.install "minisky"
+      end
     end
   end
 
